@@ -7,7 +7,10 @@ const LoadingSpinner = () => (
 );
 
 const Home = () => {
-    const [ss, setss] = useState("");
+    const [ss, setss] = useState(`int main()
+{
+printf("hello");
+}`);
     const [msg, setmsg] = useState("Please enter some code and click send.");
     const [isLoading, setIsLoading] = useState(false);
 

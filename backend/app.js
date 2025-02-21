@@ -22,7 +22,7 @@ app.post('/send', async(req, res) => {
 
     let { ss } = req.body;            //destrucring the value from the body
 
-    ss += "\n\n find errors if any. Add emojis too for wrong and right answers. \n\n";
+    ss += "\n\n find errors and explain in clarify way. Add emojis too . \n\n";
 
     const result = await model.generateContent(ss);
 
