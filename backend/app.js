@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
 
 app.post('/send', async(req, res) => {
 
-    let { value } = req.body;            //destrucring the value from the body
+    let { ss } = req.body;            //destrucring the value from the body
 
-    value += "\n\n find errors if any. Add emojis too for wrong and right answers. \n\n";
+    ss += "\n\n find errors if any. Add emojis too for wrong and right answers. \n\n";
 
-    const result = await model.generateContent(value);
+    const result = await model.generateContent(ss);
 
     res.send({ msg: result.response.text() });
 });
