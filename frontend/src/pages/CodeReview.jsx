@@ -1,6 +1,5 @@
 import React from 'react';
-console.log('Rendering CodeReview component');
-console.log('Guidelines:', guidelines);import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaCode, FaComments, FaBug, FaLightbulb, FaShieldAlt, FaRocket } from 'react-icons/fa';
 
 const guidelines = [
