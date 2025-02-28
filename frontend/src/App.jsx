@@ -35,9 +35,10 @@ const App = () => {
         </Link>
         <div className="flex space-x-4">
           <Link to="/" className="text-gray-300 hover:text-white transition">Home</Link>
+          <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link>
           <Link to="/code-review" className="text-gray-300 hover:text-white transition">Code Review</Link>
           <Link to="/docs" className="text-gray-300 hover:text-white transition">Documentation</Link>
-          <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link>
+          {/* <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link> */}
           <Link to="/contact" className="text-gray-300 hover:text-white transition">Contact</Link>
         </div>
       </div>
