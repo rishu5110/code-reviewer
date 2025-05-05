@@ -5,6 +5,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import CodeReview from './pages/CodeReview'
+import Login from './pages/Login'
+import Signup from './pages/Signup';
 
 const App = () => {
   const Logo = () => (
@@ -33,13 +35,17 @@ const App = () => {
         <Link to="/">
           <Logo />
         </Link>
-        <div className="flex space-x-4">
+        <div className="flex space-x-6">
           <Link to="/" className="text-gray-300 hover:text-white transition">Home</Link>
           <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link>
           <Link to="/code-review" className="text-gray-300 hover:text-white transition">Code Review</Link>
           <Link to="/docs" className="text-gray-300 hover:text-white transition">Documentation</Link>
           {/* <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link> */}
           <Link to="/contact" className="text-gray-300 hover:text-white transition">Contact</Link>
+        </div>
+        <div className="space-x-2">
+          <Link to="/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login</Link>
+          <Link to="/signup" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Sign Up</Link>
         </div>
       </div>
     </nav>
@@ -55,6 +61,8 @@ const App = () => {
           <Route path="/docs" element={<Documentation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -29,6 +29,8 @@ app.post('/send', async(req, res) => {
     res.send({ msg: result.response.text() });
 });
 
+const connectDb = require('./databasse');
+connectDb();
 
 app.listen(process.env.PORT, (req,res)=>
 {
