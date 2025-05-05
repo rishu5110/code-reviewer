@@ -29,6 +29,48 @@ app.post('/send', async(req, res) => {
     res.send({ msg: result.response.text() });
 });
 
+
+const userModel = require('./userModel');
+app.post('/signup', async (req,res)=>{
+    const {username , email , password} = req.body;
+    console.log(username,email);
+    await userModel.create({
+        username,
+        email,
+        password
+    })
+    console.log("User added Successfully");
+    res.status(200).json({
+        success:true,
+        message:"User added",
+    })
+})
+
+app.post('/login', async (req,res)=>{
+    const {email,password} = req.body;
+    console.log(email,password);
+    const userDetail = await userModel.findOne({email});
+    console.log(userDetail);
+    // if(!userDetail){
+    //     console.log("User not found");
+    //     res.status(401).json({
+    //         success:false,
+    //         message:"User not found",
+    //     })
+    // }
+    if(userDetail.password == password){
+        console.log("User login successfull");
+        res.status(200).json({
+            success:true,
+            message:"User login successfull",
+        })
+    }
+    else{
+        console.log("Invalid User");
+    }
+})
+
+
 const connectDb = require('./databasse');
 connectDb();
 

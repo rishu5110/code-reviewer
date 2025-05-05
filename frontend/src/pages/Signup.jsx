@@ -13,9 +13,8 @@ const Signup = () => {
             alert("Passwords don't match");
             return;
         }
-
         try {
-            const response = await axios.post('/api/signup', { // Replace '/api/signup' with your actual API endpoint
+            const response = await axios.post('http://localhost:3000/signup', { // Replace '/api/signup' with your actual API endpoint
                 username: username,
                 email: email,
                 password: password
@@ -42,6 +41,7 @@ const Signup = () => {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 focus:ring-2 focus:ring-blue-500"
                             id="username"
                             type="text"
+                            name="username"
                             placeholder="Username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -56,6 +56,7 @@ const Signup = () => {
                             id="email"
                             type="email"
                             placeholder="Email"
+                            name = "email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
