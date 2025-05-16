@@ -9,6 +9,17 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
+    },
+    questions : {
+        type: Array,
+        default: []
+
+        // {
+        //     date : "",
+        //     qid : "",
+        //     title : "",
+        // }
+
     }
 })
 

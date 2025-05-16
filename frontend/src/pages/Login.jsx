@@ -1,35 +1,42 @@
-import React from 'react';
-import {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const submitHandler = async ()=>{
-        
-        // event.preventDefault();
+    const navigate = useNavigate();
+
+    const submitHandler = async () => {
         if (!email || !password) {
-            alert("Empty Fileds");
+            alert("Empty Fields");
             return;
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/login', { // Replace '/api/signup' with your actual API endpoint
-                email:email,
-                password:password,
+            const response = await axios.post('http://localhost:3000/login', {
+                email,
+                password,
             });
+
+            if (response.data.success) {
+                localStorage.setItem('user', JSON.stringify({
+                    email: email,
+                    username: response.data.username
+                }));
+                navigate('/');
+            }
         } catch (error) {
-            console.error("Loginup failed:", error);
-            alert('Loginup failed. Please try again.');
+            console.error("Login failed:", error);
+            alert('Login failed. Please try again.');
         }
     }
-
 
     return (
         <div className="flex items-center justify-center h-screen bg-gray-900">
             <div className="bg-gray-800 p-8 rounded-xl shadow-md w-96 transition duration-300 transform hover:scale-105">
                 <h2 className="text-2xl font-semibold text-white mb-6 text-center">Login</h2>
-                <form onSubmit={(e)=>e.preventDefault()}>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <div className="mb-4">
                         <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="email">
                             Email
@@ -40,7 +47,7 @@ const Login = () => {
                             type="email"
                             placeholder="Username"
                             name='email'
-                            onChange={(e)=>setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="mb-6">
@@ -53,7 +60,7 @@ const Login = () => {
                             type="password"
                             name='password'
                             placeholder="Password"
-                            onChange={(e)=>setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-between">
