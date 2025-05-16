@@ -1,14 +1,14 @@
 # Code Review AI
 
-An intelligent code analysis tool that provides instant feedback on your code using AI-powered suggestions.
+An intelligent code analysis tool that provides instant feedback on your code using AI-powered suggestions and tracks your coding progress.
 
 ## 🚀 Features
 
-- Real-time code analysis
-- AI-powered suggestions
-- Best practices recommendations
-- Performance optimization tips
-- Security vulnerability detection
+- Real-time code analysis using Google's Gemini AI
+- User authentication (signup/login)
+- Progress tracking for completed questions
+- AI-powered code review suggestions
+- Error detection and explanation with emojis
 - Dark mode interface
 - Responsive design
 
@@ -16,35 +16,49 @@ An intelligent code analysis tool that provides instant feedback on your code us
 
 ### Frontend
 
-- React.js
-- React Router DOM
+- React (v19)
+- React Router DOM (v7)
 - Tailwind CSS
+- Framer Motion
+- React Calendar Heatmap
+- React Icons
 - Vite
 
 ### Backend
 
 - Node.js
 - Express.js
-- Google Generative AI (Gemini)
+- MongoDB (with Mongoose)
+- Google Generative AI (Gemini 2.0)
 - CORS
+- Dotenv for configuration
 - Body Parser
 
 ## 📁 Project Structure
 
 ```
-CodeReview/
+code-reviewer/
 ├── frontend/
 │   ├── src/
 │   │   ├── pages/
 │   │   │   ├── About.jsx
+│   │   │   ├── CodeReview.jsx
 │   │   │   ├── Contact.jsx
-│   │   │   └── Documentation.jsx
-│   │   └── App.jsx
+│   │   │   ├── Documentation.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── LeetDaily.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Signup.jsx
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │   ├── package.json
 │   └── vite.config.js
 │
 └── backend/
     ├── app.js
+    ├── databasse.js
+    ├── userModel.js
+    ├── .env
     └── package.json
 ```
 
@@ -53,6 +67,7 @@ CodeReview/
 ### Prerequisites
 
 - Node.js (v16 or higher)
+- MongoDB database
 - npm or yarn
 
 ### Installation
@@ -80,11 +95,12 @@ npm install
 
 4. Set up Environment Variables
 
-- Create a `.env` file in the backend directory
-- Add your Google Generative AI API key
+Create a `.env` file in the backend directory with:
 
 ```
-GOOGLE_API_KEY=your_api_key_here
+GOOGLE_API_KEY=your_gemini_api_key_here
+PORT=3000
+MONGO_URL=your_mongodb_connection_string
 ```
 
 ### Running the Application
@@ -121,8 +137,6 @@ We welcome contributions to Code Review AI! Here's how you can help:
 - Comment your code where necessary
 - Follow the existing code style
 - Update documentation as needed
-- Add tests for new features
-
 
 ## 📞 Contact
 
@@ -132,14 +146,15 @@ We welcome contributions to Code Review AI! Here's how you can help:
 ## 🙏 Acknowledgments
 
 - Google Generative AI for providing the code analysis capabilities
-- React and Tailwind CSS communities for the excellent frontend tools
+- React and Tailwind CSS communities for the frontend tools
+- MongoDB Atlas for database hosting
 - All contributors who help improve this project
 
 ## 🔮 Future Enhancements
 
-- [ ] Multiple programming language support
+- [ ] Support for more programming languages
 - [ ] Code formatting suggestions
 - [ ] Integration with GitHub repositories
-- [ ] Team collaboration features
-- [ ] Custom rule configurations
-- [ ] Export reports in multiple formats
+- [ ] Enhanced user progress analytics
+- [ ] Custom AI review rules configuration
+- [ ] Collaborative code review features
